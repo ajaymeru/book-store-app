@@ -86,3 +86,17 @@ a {
     width: 150px;
     height: 150px;
 }
+
+.newbook button{
+    padding: 20px 40px;
+    background-color: blue;
+    color:white;
+    border:none;
+}
+
+.preview button{
+    padding: 20px 40px;
+    background-color: green;
+    color:white;
+    border:none;
+}
