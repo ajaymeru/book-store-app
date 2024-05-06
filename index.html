@@ -17,11 +17,17 @@
             <a href="">Contact</a>
             <a href="">Login</a>
         </div>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
     </section>
     <section class="book">
         <h1>Welcome to Book Store</h1>
         <div class="bookenter">
             <div class="newbook">
+                <h4>Add New Book</h4>
                 <label for="bookName">Enter Book Name :</label>
                 <input type="text" id="bookName">
                 <label for="authorName">Enter Author Name :</label>
@@ -33,7 +39,7 @@
                 <button onclick="previewBook()">Preview Book</button>
             </div>
             <div class="preview">
-                <h2>Book Preview</h2>
+                <h4>Book Preview</h4>
                 <img id="previewImage" src="#" alt="" style="width: 150px; height: 150px;">
                 <div id="previewDetails"></div>
                 <button onclick="addToStore()">Add to Store</button>
@@ -89,6 +95,7 @@
             document.getElementById("previewDetails").innerHTML = "";
             document.getElementById("previewImage").src = "";
         }
+        
     </script>
 </body>
 </html>
