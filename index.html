@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,58 +45,63 @@
                 <div id="previewDetails"></div>
                 <button onclick="addToStore()">Add to Store</button>
             </div>
-            
+
         </div>
     </section>
-    
+
     <section class="bookstore">
         <h2>Book Store</h2>
         <div id="booklist" class="book-grid"></div>
     </section>
-    
+
     <script>
         function previewBook() {
             var bookName = document.getElementById("bookName").value;
             var authorName = document.getElementById("authorName").value;
             var bookPrice = document.getElementById("bookPrice").value;
             var bookImage = document.getElementById("bookImage").files[0];
-    
+
             var previewDetails = "<strong>Book Name:</strong> " + bookName + "<br>" +
-                                 "<strong>Author:</strong> " + authorName + "<br>" +
-                                 "<strong>Price:</strong> " + bookPrice;
+                "<strong>Author:</strong> " + authorName + "<br>" +
+                "<strong>Price:</strong> " + bookPrice;
             document.getElementById("previewDetails").innerHTML = previewDetails;
-    
+
             var reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById("previewImage").src = e.target.result;
             };
             reader.readAsDataURL(bookImage);
         }
-    
+
         function addToStore() {
             var bookName = document.getElementById("bookName").value;
             var authorName = document.getElementById("authorName").value;
             var bookPrice = document.getElementById("bookPrice").value;
             var bookImage = document.getElementById("bookImage").files[0];
-    
+
             var newBook = document.createElement("div");
             newBook.classList.add("book-item");
-    
+
             newBook.innerHTML = "<img src='" + URL.createObjectURL(bookImage) + "' alt='Book Image'>" +
-                                "<p><strong>Name:</strong> " + bookName + "</p>" +
-                                "<p><strong>Author:</strong> " + authorName + "</p>" +
-                                "<p><strong>Price:</strong> $" + bookPrice + "</p>";
-    
+                "<p><strong>Name:</strong> " + bookName + "</p>" +
+                "<p><strong>Author:</strong> " + authorName + "</p>" +
+                "<p><strong>Price:</strong> $" + bookPrice + "</p>";
+
             document.getElementById("booklist").appendChild(newBook);
-    
+
             document.getElementById("bookName").value = "";
             document.getElementById("authorName").value = "";
             document.getElementById("bookPrice").value = "";
             document.getElementById("bookImage").value = "";
             document.getElementById("previewDetails").innerHTML = "";
             document.getElementById("previewImage").src = "";
+            // ["bookName", "authorName", "bookPrice", "bookImage", "previewDetails", "previewImage"].forEach(id => {
+            //     document.getElementById(id).value = ""; // for input elements
+            //     document.getElementById(id).innerHTML = ""; // for other elements like divs
+            // });
         }
-        
     </script>
+    <script src="app.js"></script>
 </body>
+
 </html>
